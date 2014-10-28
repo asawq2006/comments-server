@@ -29,6 +29,12 @@ module.exports = function(app, nconf) {
     }
   });
 
+  app.options('/comments', function(request, response) {
+    response.set('Access-Control-Allow-Headers', 'Content-Type');
+    response.set('Access-Control-Allow-Origin', '*');
+    response.end();
+  });
+
   // to get all comments
   app.get('/comments', function(request, response) {
     response.set('Access-Control-Allow-Origin', '*');
